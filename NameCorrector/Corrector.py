@@ -6,22 +6,30 @@ def _init_(self, user):
 
 def starter(user):
     outStr = []
+
     for char in user:
        if char == " ":
-          outStr.append(char)
+          ind = user.index(char)+1
+          if user[ind].isupper() == True:
+             outStr.append(char)
+
+          elif user[ind].isupper() == False:
+              print("\n После пробела должно стоять большой букве")
+              break
+
        elif char.isalpha() == True:
             outStr.append(char)
+
        else:
            outStr.clear()
-           print("Недопустимое значение!")
+           print("\n Недопустимое значение!")
            break
-           
-    for s in outStr:
-      if outStr[0].isupper() == True:
-            print(s, end='')
-      else:
-          print("Введите имя с большой буквы.")
-          break
+       
+    output(outStr)
+
+def output(user):        
+    for s in user:
+          print(s, end='')
 
 
 
